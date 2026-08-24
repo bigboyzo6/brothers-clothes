@@ -6,7 +6,7 @@ Web toko online pakaian bertema retro 80an full-stack (HTML, CSS, JS, Node.js, E
 
 ## 💻 Cara Menjalankan Project
 
-Pastikan kamu sudah menginstal tools berikut di komputer kamu:
+Pastikan sudah terinstall:
 - [Node.js](https://nodejs.org/) (versi 14 ke atas)
 - Web Server & MySQL Environment ([Laragon](https://laragon.org/) / [XAMPP](https://www.apachefriends.org/))
 - Editor Kode (disarankan [VS Code](https://code.visualstudio.com/)) dengan ekstensi **Live Server**
