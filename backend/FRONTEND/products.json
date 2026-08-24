@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Brothers Oversized T-Shirt",
+        "category": "TEES",
+        "price": 120000,
+        "stock": 15,
+        "defaultImage": "tshirt.png",
+        "images": {
+            "Hitam": "tshirt/black.jfif",
+            "Putih": "tshirt/white.jfif",
+            "Navy": "tshirt/navy.jfif",
+            "Denim": "tshirt/denim.jfif",
+            "Abu-Abu": "tshirt.png"
+        },
+        "description": "Kaos bergaya vintage era 80-an dengan potongan oversized yang longgar. Menggunakan bahan Cotton Combed 24s premium yang adem, tidak mudah susut, dan nyaman dipakai seharian untuk aktivitas harian maupun santai."
+    },
+    {
+        "id": 2,
+        "name": "Brothers Denim Jacket",
+        "category": "JACKET",
+        "price": 350000,
+        "stock": 8,
+        "defaultImage": "jacket.png",
+        "images": {
+            "Hitam": "Clothes/jacket/black.jfif",
+            "Denim": "jacket.png",
+            "Abu-Abu": "Clothes/jacket/grey.jfif" 
+        },
+        "description": "Jaket denim klasik berbahan raw denim tebal dengan detail kancing besi dan kantong ganda khas gaya 80-an."
+    },
+    {
+        "id": 3,
+        "name": "Brothers Cargo Pants",
+        "category": "DENIM",
+        "price": 280000,
+        "stock": 10,
+        "defaultImage": "cargo.png",
+        "images": {
+            "Denim": "Clothes/cargo/denim.jfif",
+            "Army": "Clothes/cargo/army.png",
+            "Abu-Abu": "Clothes/cargo/grey.jfif",
+            "Hitam": "Clothes/cargo/black.jfif"
+        },
+        "description": "Celana cargo bahan cotton twill yang kuat, dilengkapi banyak saku fungsional untuk tampilan vintage street style."
+    }
+]
