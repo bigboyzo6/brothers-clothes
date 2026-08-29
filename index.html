@@ -83,7 +83,6 @@
                 <p><strong>Opsi Pengiriman:</strong> JNE, J&T, GoSend, GrabExpress</p> 
             </section> 
         </section> 
-
     </main> 
 
     <!-- MODAL QUICK VIEW PRODUK -->
@@ -207,12 +206,6 @@
         </div>
     </div>
 
-    <!-- Tombol Switch Mode & Toast -->
-    <button class="theme-switch-btn" onclick="toggleTheme()" id="theme-btn">
-        <i class="fa-solid fa-moon" style="color: #ffcc00; margin-right: 5px;"></i> Mode Gelap
-    </button>
-    <div id="toast-notification">Berhasil ditambahkan ke keranjang!</div>
-
     <!-- MODAL KALKULATOR UKURAN STANDALONE -->
     <div id="size-calculator-modal" class="modal" style="display: none;">
         <div class="modal-content retro-size-calc-modal">
@@ -228,7 +221,7 @@
                         <label for="calc-height">Tinggi Badan (cm)</label>
                         <input type="number" id="calc-height" placeholder="170" value="170">
                     </div>
-                    <div class="calc-weight-group">
+                    <div class="input-field-group">
                         <label for="calc-weight">Berat Badan (kg)</label>
                         <input type="number" id="calc-weight" placeholder="65" value="65">
                     </div>
@@ -241,7 +234,57 @@
         </div>
     </div>
 
-    <script src="script.js" defer></script> 
+    <!-- Tombol Switch Mode & Toast -->
+    <button class="theme-switch-btn" onclick="toggleTheme()" id="theme-btn">
+        <i class="fa-solid fa-moon" style="color: #ffcc00; margin-right: 5px;"></i> Mode Gelap
+    </button>
+    
     <div id="toast-notification">Berhasil ditambahkan ke keranjang!</div>
+
+    <!-- FOOTER -->
+    <footer class="retro-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Bantuan</h4>
+                <ul>
+                    <li><a href="#">Hubungi Kami</a></li>
+                    <li><a href="#">Pertanyaan Umum</a></li>
+                    <li><a href="#">Pengembalian</a></li>
+                    <li><a href="#">Temukan Toko</a></li>
+                    <li><a href="#">Melacak Pesanan</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang BrothersClothes</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Tautan Langsung</h4>
+                <ul>
+                    <li><a href="#">Brothers Red Tab™ Program</a></li>
+                    <li><a href="#">Temukan Toko</a></li>
+                    <li><a href="#">Peta Situs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="legal-links">
+                <a href="#">Kebijakan pengembalian uang</a> • 
+                <a href="#">Kebijakan privasi</a> • 
+                <a href="#">Ketentuan Layanan</a> • 
+                <a href="#">Kebijakan pengiriman</a> • 
+                <span>© 2026, BrothersClothes & Co</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
 </body> 
 </html>

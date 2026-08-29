@@ -1,3 +1,6 @@
+/* ===================================================
+   RESET & DEFAULT STYLES
+   =================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +8,16 @@
     font-family: 'Courier New', Courier, monospace !important;
 }
 
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #f6ea9e;
     color: #0E1721;
-    font-family: 'Courier New', Courier, monospace !important;
     padding-bottom: 60px;
-}
-
-button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, a, label {
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
 /* --- VISIBILITAS HALAMAN --- */
@@ -45,7 +49,6 @@ header {
     cursor: pointer;
     font-size: 26px;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace !important;
     letter-spacing: 1px;
     color: #ffffff;
     text-shadow: 2px 2px 3px #000;
@@ -104,11 +107,9 @@ header {
     border: 3px solid #b03a2e !important;
     border-radius: 8px;
     box-shadow: 6px 6px 0px #0e1721;
-    
     width: 100%;
     margin: 0 auto 30px auto;
-    min-height: 480px;
-    
+    min-height: 70vh; /* Mengisi layar lebih pas di mode desktop */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,7 +131,6 @@ header {
 
 .hero-overlay h2 {
     font-size: 38px;
-    font-family: 'Courier New', Courier, monospace !important;
     font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 15px;
@@ -139,7 +139,6 @@ header {
 
 .hero-overlay p {
     font-size: 15px;
-    font-family: 'Courier New', Courier, monospace !important;
     margin-bottom: 35px;
     text-shadow: 1px 1px 3px #000;
 }
@@ -155,7 +154,6 @@ header {
     padding: 10px 18px;
     font-size: 13px;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace !important;
     cursor: pointer;
     border: 2px solid #fff;
     box-shadow: 2px 2px 0px #000;
@@ -188,12 +186,10 @@ header {
     border: 2px solid #000;
     cursor: pointer;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
 .section-title {
     color: #b03a2e;
-    font-family: 'Courier New', Courier, monospace !important;
     font-size: 28px;
     font-weight: bold;
 }
@@ -239,7 +235,6 @@ header {
     border: none;
     color: #D99B26;
     outline: none;
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
 .quick-filter-buttons {
@@ -256,7 +251,6 @@ header {
     padding: 6px 14px;
     font-weight: bold;
     cursor: pointer;
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
 .quick-filter-buttons .filter-btn.active {
@@ -298,17 +292,44 @@ header {
 .product-title {
     font-weight: bold;
     font-size: 16px;
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
 .product-price {
     color: #b03a2e;
     font-weight: bold;
     font-size: 15px;
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
-/* --- STYLING MODAL DASAR --- */
+.btn-wishlist-card {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffffff;
+    border: 2px solid #000;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ff4d4d;
+    font-size: 16px;
+    box-shadow: 2px 2px 0px #000;
+    z-index: 5;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.btn-wishlist-card:hover {
+    transform: scale(1.1);
+}
+
+.btn-wishlist-card.active {
+    background: #ff4d4d;
+    color: #ffffff;
+}
+
+/* --- STYLING MODAL DASAR & VARIAN --- */
 .modal {
     position: fixed;
     z-index: 1000;
@@ -371,22 +392,30 @@ header {
     flex-wrap: wrap;
 }
 
-/* --- COLOR PILLS (TETAP BERWARNA PADA MODE TERANG & GELAP) --- */
+/* --- COLOR PILLS (DESAIN TERPADU) --- */
 .color-pill {
-    padding: 6px 16px !important;
+    padding: 6px 14px !important;
     border-radius: 6px !important;
     font-weight: 700 !important;
     border: 1px solid #ccc !important;
     cursor: pointer !important;
     font-size: 13px !important;
+    color: #fff;
+    transition: 0.2s;
 }
 
-.color-pill.hitam { background: #222222 !important; color: #ffffff !important; border-color: #000 !important; }
-.color-pill.putih { background: #ffffff !important; color: #000000 !important; border-color: #888 !important; }
+.color-pill:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.color-pill.hitam { background: #111111 !important; color: #ffffff !important; border-color: #000 !important; }
+.color-pill.putih { background: #f3f4f6 !important; color: #333333 !important; border-color: #d1d5db !important; }
 .color-pill.navy  { background: #1e293b !important; color: #ffffff !important; border-color: #0f172a !important; }
 .color-pill.denim { background: #3b82f6 !important; color: #ffffff !important; border-color: #1d4ed8 !important; }
+.color-pill.army  { background: #556B2F !important; color: #ffffff !important; border-color: #4a5d28 !important; }
 .color-pill.abu, 
-.color-pill.abu-abu   { background: #9ca3af !important; color: #ffffff !important; border-color: #4b5563 !important; }
+.color-pill.abu-abu { background: #808080 !important; color: #ffffff !important; border-color: #666666 !important; }
 
 #qv-title {
     font-size: 22px !important;
@@ -422,7 +451,7 @@ header {
     color: #fff;
 }
 
-/* --- DESAIN KALKULATOR UKURAN RETRO 80S (MODAL VARIAN) --- */
+/* --- KALKULATOR UKURAN & MODAL VARIAN --- */
 .retro-variant-modal {
     border: 3px solid #7a1d1d !important;
     background-color: #fcf8ee !important;
@@ -430,7 +459,6 @@ header {
 }
 
 .modal-product-title {
-    font-family: 'Courier New', Courier, monospace !important;
     font-size: 20px;
     font-weight: bold;
     color: #7a1d1d;
@@ -453,7 +481,6 @@ header {
     font-weight: bold;
     margin-bottom: 5px;
     color: #1e293b;
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
 .retro-select {
@@ -465,7 +492,6 @@ header {
     border-radius: 4px;
     cursor: pointer;
     outline: none;
-    font-family: 'Courier New', Courier, monospace !important;
 }
 
 .retro-select:focus {
@@ -484,326 +510,13 @@ header {
     opacity: 0.95;
 }
 
-.store-info {
-    margin-top: 40px;
-    padding: 20px;
-    background: #fff;
-    border: 3px solid #000;
-    box-shadow: 5px 5px 0px #000;
-}
-
-.store-info h3 {
-    font-family: 'Courier New', Courier, monospace !important;
-    font-weight: bold;
-    color: #b03a2e;
-    border-bottom: 1px dashed #000;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    font-size: 18px;
-}
-
-.store-info p {
-    margin-bottom: 6px;
-    font-size: 14px;
-    color: #0E1721;
-}
-
-.store-info strong {
-    color: #b03a2e;
-    font-weight: bold;
-}
-
-/* --- TOMBOL MODE SWITCH --- */
-.theme-switch-btn {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    padding: 10px 15px;
-    background: #0E1721 !important;
-    color: #D99B26 !important;
-    border: 2px solid #D99B26 !important;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace !important;
-    z-index: 99;
-    box-shadow: 3px 3px 0px #000;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.theme-switch-btn:hover {
-    background: #182535 !important;
-}
-
-#toast-notification {
-    visibility: hidden;
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border: 2px solid #D99B26;
-    z-index: 2000;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-#toast-notification.show {
-    visibility: visible;
-}
-
-/* ===================================================
-   TAMPILAN SAAT AKTIF MODE CRT 80-AN (FULL DARK RETRO)
-   =================================================== */
-body.crt-mode {
-    background-color: #070B0E !important;
-    color: #D99B26 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-body.crt-mode .theme-switch-btn {
-    background: #b03a2e !important;
-    color: #ffffff !important;
-    border: 2px solid #000000 !important;
-}
-
-body.crt-mode .theme-switch-btn:hover {
-    background: #962d23 !important;
-}
-
-body.crt-mode header {
-    background: linear-gradient(rgba(14, 23, 33, 0.85), rgba(14, 23, 33, 0.85)), 
-                url('Styling/Bata.png') center/cover repeat-x !important;
-    border-bottom: 3px solid #D99B26 !important;
-}
-
-body.crt-mode .logo {
-    color: #D99B26 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    text-shadow: 2px 2px 0px #000 !important;
-}
-
-body.crt-mode .cart-icon-wrapper {
-    background: transparent !important;
-    border: none !important;
-    color: #D99B26 !important;
-    position: relative;
-    padding: 0;
-}
-
-body.crt-mode .cart-badge {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background: #A8332A;
-    color: #fff;
-}
-
-body.crt-mode .hero-overlay {
-    background: linear-gradient(rgba(14, 23, 33, 0.75), rgba(14, 23, 33, 0.75)), 
-                url('Styling/Denimnight.jfif') center/cover no-repeat !important;
-    border: 3px solid #D99B26 !important;
-    box-shadow: 6px 6px 0px #000 !important;
-    color: #D99B26 !important;
-}
-
-body.crt-mode .hero-overlay h2 {
-    font-family: 'Courier New', Courier, monospace !important;
-    text-shadow: 2px 2px 0px #000 !important;
-    color: #ffffff !important;
-    display: inline-block;
-    padding: 4px 12px;
-}
-
-body.crt-mode .hero-tag {
-    background: #000 !important;
-    color: #D99B26 !important;
-    border: 1px solid #D99B26 !important;
-}
-
-body.crt-mode .btn-hero {
-    border-color: #D99B26 !important;
-    box-shadow: 2px 2px 0px #000 !important;
-}
-
-body.crt-mode .btn-brick {
-    background-color: #D99B26 !important;
-    color: #0E1721 !important;
-}
-
-body.crt-mode .btn-outline {
-    background-color: rgba(0, 0, 0, 0.6) !important;
-    color: #D99B26 !important;
-}
-
-body.crt-mode .product-card {
-    background-color: #0E1721 !important;
-    border: 2px solid #D99B26 !important;
-    box-shadow: 5px 5px 0px #000 !important;
-}
-
-body.crt-mode .product-details {
-    background-color: #0E1721 !important;
-}
-
-body.crt-mode .product-title {
-    color: #D99B26 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-body.crt-mode .product-price {
-    color: #FF5555 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    font-weight: bold;
-}
-
-body.crt-mode .product-img {
-    border-bottom: 2px solid #D99B26 !important;
-}
-
-body.crt-mode .store-info {
-    background-color: #0E1721 !important;
-    border: 2px solid #D99B26 !important;
-    box-shadow: 6px 6px 0px #000 !important;
-    color: #D99B26 !important;
-}
-
-body.crt-mode .store-info h3,
-body.crt-mode .store-info h4 {
-    color: #FFD700 !important;
-    border-bottom: 1px dashed #D99B26;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-body.crt-mode .store-info p, 
-body.crt-mode .store-info span {
-    color: #E2E8F0 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-body.crt-mode .store-info strong {
-    color: #D99B26 !important;
-}
-
-body.crt-mode .modal-content,
-body.crt-mode .retro-variant-modal {
-    background-color: #0e1721 !important;
-    border: 3px solid #d99b26 !important;
-    color: #d99b26 !important;
-    box-shadow: 6px 6px 0px #000 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-body.crt-mode .modal-content h3,
-body.crt-mode .modal-content h4,
-body.crt-mode .modal-content p,
-body.crt-mode .modal-content label,
-body.crt-mode .selection-group label {
-    color: #d99b26 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-body.crt-mode .modal-product-title {
-    color: #d99b26 !important;
-    border-bottom-color: #d99b26 !important;
-}
-
-body.crt-mode .close-btn {
-    color: #ff4d4d !important;
-}
-
-body.crt-mode .retro-select {
-    background: #000 !important;
-    color: #d99b26 !important;
-    border-color: #d99b26 !important;
-}
-
-body.crt-mode .modal-content button:not(.btn-brick-bg):not(.btn-checkout):not(.color-pill) {
-    background-color: #000 !important;
-    color: #d99b26 !important;
-    border: 1px solid #d99b26 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-body.crt-mode .modal-content button:not(.btn-brick-bg):not(.btn-checkout):not(.color-pill):hover {
-    background-color: #d99b26 !important;
-    color: #0e1721 !important;
-}
-
-body.crt-mode .btn-brick-bg,
-body.crt-mode .btn-add-cart-modal {
-    background-color: #b03a2e !important;
-    color: #ffffff !important;
-    border: 1px solid #000 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-}
-
-/* --- FIX ICON FONT AWESOME OVERRIDE --- */
-i[class*="fa-"], 
-.fas, 
-.far, 
-.fab, 
-.fa {
-    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
-    font-weight: 900;
-}
-
-.btn-wishlist-card {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ffffff;
-    border: 2px solid #000;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #ff4d4d;
-    font-size: 16px;
-    box-shadow: 2px 2px 0px #000;
-    z-index: 5;
-    transition: transform 0.1s ease, background-color 0.2s ease;
-}
-
-.btn-wishlist-card:hover {
-    transform: scale(1.1);
-}
-
-.btn-wishlist-card.active {
-    background: #ff4d4d;
-    color: #ffffff;
-}
-
-body.crt-mode .btn-wishlist-card {
-    background: #0E1721 !important;
-    border: 2px solid #D99B26 !important;
-    color: #ff4d4d !important;
-    box-shadow: 2px 2px 0px #000 !important;
-}
-
-body.crt-mode .btn-wishlist-card.active {
-    background: #ff4d4d !important;
-    color: #fff !important;
-}
-
-/* ===================================================
-   KALKULATOR UKURAN STANDALONE (KLASIK & CRT MODE FIX)
-   =================================================== */
-
+/* --- KALKULATOR UKURAN STANDALONE --- */
 .retro-size-calc-modal {
     padding: 24px !important;
     border-radius: 8px !important;
+    background-color: #b03a2e !important;
+    border: 3px solid #000000 !important;
+    box-shadow: 6px 6px 0px #0e1721 !important;
 }
 
 .retro-size-calc-modal .close-btn {
@@ -834,11 +547,11 @@ body.crt-mode .btn-wishlist-card.active {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Courier New', Courier, monospace !important;
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 16px;
     letter-spacing: 0.5px;
+    color: #ffe680;
 }
 
 .input-grid {
@@ -851,49 +564,29 @@ body.crt-mode .btn-wishlist-card.active {
 .input-field-group label {
     display: block;
     font-size: 11px;
-    font-family: 'Courier New', Courier, monospace !important;
     margin-bottom: 5px;
+    color: #ffffff;
 }
 
 .input-field-group input {
     width: 100%;
     padding: 8px 10px;
-    font-family: 'Courier New', Courier, monospace !important;
     font-weight: bold;
     font-size: 14px;
     border-radius: 4px;
     outline: none;
+    background: #ffffff;
+    border: 2px solid #000000;
+    color: #000000;
 }
 
 .recommend-badge {
     text-align: center;
     padding: 10px;
     border-radius: 4px;
-    font-family: 'Courier New', Courier, monospace !important;
     font-weight: bold;
     font-size: 12px;
     transition: all 0.2s ease;
-}
-
-/* --- TAMPILAN MODE KLASIK --- */
-.retro-size-calc-modal {
-    background-color: #b03a2e !important;
-    border: 3px solid #000000 !important;
-    box-shadow: 6px 6px 0px #0e1721 !important;
-}
-
-.retro-size-calc-modal .recommender-header {
-    color: #ffe680;
-}
-
-.retro-size-calc-modal .input-field-group label {
-    color: #ffffff;
-}
-
-.retro-size-calc-modal .input-field-group input {
-    background: #ffffff;
-    border: 2px solid #000000;
-    color: #000000;
 }
 
 .retro-size-calc-modal .recommend-badge.default {
@@ -908,37 +601,55 @@ body.crt-mode .btn-wishlist-card.active {
     border: 1px solid #ffffff;
 }
 
-/* --- TAMPILAN MODE CRT --- */
-body.crt-mode .retro-size-calc-modal {
-    background-color: #0e1721 !important;
-    border: 2px solid #d99b26 !important;
-    box-shadow: 6px 6px 0px #000000 !important;
+/* --- STORE INFO --- */
+.store-info {
+    margin-top: 40px;
+    padding: 20px;
+    background: #fff;
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0px #000;
 }
 
-body.crt-mode .retro-size-calc-modal .recommender-header {
-    color: #d99b26 !important;
+.store-info h3 {
+    font-weight: bold;
+    color: #b03a2e;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    font-size: 18px;
 }
 
-body.crt-mode .retro-size-calc-modal .input-field-group label {
-    color: #d99b26 !important;
+.store-info p {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #0E1721;
 }
 
-body.crt-mode .retro-size-calc-modal .input-field-group input {
-    background: #000000 !important;
-    border: 1.5px solid #d99b26 !important;
-    color: #d99b26 !important;
+.store-info strong {
+    color: #b03a2e;
+    font-weight: bold;
 }
 
-body.crt-mode .retro-size-calc-modal .recommend-badge.default {
-    background: #000000 !important;
-    color: #d99b26 !important;
-    border: 1px dashed #d99b26 !important;
+/* --- TOMBOL MODE SWITCH --- */
+.theme-switch-btn {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    background: #0E1721 !important;
+    color: #D99B26 !important;
+    border: 2px solid #D99B26 !important;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 99;
+    box-shadow: 3px 3px 0px #000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-body.crt-mode .retro-size-calc-modal .recommend-badge.active {
-    background: #b03a2e !important;
-    color: #ffffff !important;
-    border: 1px solid #ffffff !important;
+.theme-switch-btn:hover {
+    background: #182535 !important;
 }
 
 /* --- TOAST NOTIFICATION --- */
@@ -947,22 +658,23 @@ body.crt-mode .retro-size-calc-modal .recommend-badge.active {
     position: fixed;
     bottom: 30px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(20px);
     background: #0E1721;
-    color: #ffffff;
+    color: #00ff66;
     padding: 12px 24px;
     border: 2px solid #D99B26;
     border-radius: 6px;
     box-shadow: 4px 4px 0px #000;
-    z-index: 3000;
+    z-index: 9999;
     font-weight: bold;
     font-size: 14px;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: all 0.3s ease-in-out;
     opacity: 0;
 }
 
 #toast-notification.show {
     visibility: visible;
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
 
@@ -1065,105 +777,322 @@ body.crt-mode .retro-size-calc-modal .recommend-badge.active {
     transition: transform 0.1s ease, filter 0.2s ease;
 }
 
-.btn-checkout:hover {
-    filter: brightness(1.1);
+.btn-checkout:hover { filter: brightness(1.1); }
+.btn-checkout:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #000; }
+
+.btn-wa { background-color: #25D366 !important; }
+.btn-shopee { background-color: #EE4D2D !important; }
+.btn-tokopedia { background-color: #03AC0E !important; }
+.btn-tiktok { background-color: #000000 !important; }
+
+/* --- RETRO FOOTER STYLING --- */
+.retro-footer {
+  background-color: #1a1a1a;
+  color: #d99b26;
+  padding: 40px 20px 20px 20px;
+  border-top: 3px solid #d99b26;
+  margin-top: 50px;
 }
 
-.btn-checkout:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px #000;
+body:not(.crt-mode) .retro-footer {
+  background-color: #f0f0f0;
+  color: #222222;
+  border-top: 3px solid #a8332a;
 }
 
-/* BAR KHAS PLATFORM */
-.btn-wa {
-    background-color: #25D366 !important;
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-.btn-shopee {
-    background-color: #EE4D2D !important;
+.footer-column {
+  flex: 1;
+  min-width: 200px;
 }
 
-.btn-tokopedia {
-    background-color: #03AC0E !important;
+.footer-column h4 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid currentColor;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.btn-tiktok {
-    background-color: #000000 !important;
+.footer-column ul {
+  list-style: none;
 }
 
-/* --- PENYESUAIAN SAAT MODE CRT --- */
-body.crt-mode .cart-modal-title {
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 40px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px dashed currentColor;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.legal-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.legal-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================================
+   TAMPILAN SAAT AKTIF MODE CRT 80-AN (FULL DARK RETRO)
+   =================================================== */
+body.crt-mode {
+    background-color: #070B0E !important;
     color: #D99B26 !important;
 }
 
-body.crt-mode .checkout-title {
-    color: #E2E8F0 !important;
+body.crt-mode .theme-switch-btn {
+    background: #b03a2e !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
 }
 
-/* Styling Tombol Warna Pilihan */
-.color-pill {
-    padding: 6px 14px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 13px;
+body.crt-mode .theme-switch-btn:hover { background: #962d23 !important; }
+
+body.crt-mode header {
+    background: linear-gradient(rgba(14, 23, 33, 0.85), rgba(14, 23, 33, 0.85)), 
+                url('Styling/Bata.png') center/cover repeat-x !important;
+    border-bottom: 3px solid #D99B26 !important;
+}
+
+body.crt-mode .logo {
+    color: #D99B26 !important;
+    text-shadow: 2px 2px 0px #000 !important;
+}
+
+body.crt-mode .cart-icon-wrapper {
+    background: transparent !important;
+    border: none !important;
+    color: #D99B26 !important;
+    position: relative;
+    padding: 0;
+}
+
+body.crt-mode .cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #A8332A;
+    color: #fff;
+}
+
+body.crt-mode .hero-overlay {
+    background: linear-gradient(rgba(14, 23, 33, 0.75), rgba(14, 23, 33, 0.75)), 
+                url('Styling/Denimnight.jfif') center/cover no-repeat !important;
+    border: 3px solid #D99B26 !important;
+    box-shadow: 6px 6px 0px #000 !important;
+    color: #D99B26 !important;
+}
+
+body.crt-mode .hero-overlay h2 {
+    text-shadow: 2px 2px 0px #000 !important;
+    color: #ffffff !important;
+    display: inline-block;
+    padding: 4px 12px;
+}
+
+body.crt-mode .hero-tag {
+    background: #000 !important;
+    color: #D99B26 !important;
+    border: 1px solid #D99B26 !important;
+}
+
+body.crt-mode .btn-hero {
+    border-color: #D99B26 !important;
+    box-shadow: 2px 2px 0px #000 !important;
+}
+
+body.crt-mode .btn-brick {
+    background-color: #D99B26 !important;
+    color: #0E1721 !important;
+}
+
+body.crt-mode .btn-outline {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    color: #D99B26 !important;
+}
+
+body.crt-mode .product-card {
+    background-color: #0E1721 !important;
+    border: 2px solid #D99B26 !important;
+    box-shadow: 5px 5px 0px #000 !important;
+}
+
+body.crt-mode .product-details { background-color: #0E1721 !important; }
+body.crt-mode .product-title { color: #D99B26 !important; }
+
+body.crt-mode .product-price {
+    color: #FF5555 !important;
     font-weight: bold;
-    color: #fff; /* Teks warna putih supaya kontras */
-    transition: 0.2s;
 }
 
-/* Warna spesifik untuk masing-masing tombol */
-.color-pill.army {
-    background-color: #556B2F; /* Hijau Army */
-    border-color: #4a5d28;
+body.crt-mode .product-img { border-bottom: 2px solid #D99B26 !important; }
+
+body.crt-mode .store-info {
+    background-color: #0E1721 !important;
+    border: 2px solid #D99B26 !important;
+    box-shadow: 6px 6px 0px #000 !important;
+    color: #D99B26 !important;
 }
 
-.color-pill.abu, .color-pill.abu-abu {
-    background-color: #808080; /* Abu-abu */
-    border-color: #666;
+body.crt-mode .store-info h3,
+body.crt-mode .store-info h4 {
+    color: #FFD700 !important;
+    border-bottom: 1px dashed #D99B26;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-.color-pill.hitam {
-    background-color: #111111; /* Hitam */
-    border-color: #000;
+body.crt-mode .store-info p, 
+body.crt-mode .store-info span { color: #E2E8F0 !important; }
+body.crt-mode .store-info strong { color: #D99B26 !important; }
+
+body.crt-mode .modal-content,
+body.crt-mode .retro-variant-modal {
+    background-color: #0e1721 !important;
+    border: 3px solid #d99b26 !important;
+    color: #d99b26 !important;
+    box-shadow: 6px 6px 0px #000 !important;
 }
 
-.color-pill.denim {
-    background-color: #3b82f6; /* Biru Denim */
-    border-color: #2563eb;
+body.crt-mode .modal-content h3,
+body.crt-mode .modal-content h4,
+body.crt-mode .modal-content p,
+body.crt-mode .modal-content label,
+body.crt-mode .selection-group label { color: #d99b26 !important; }
+
+body.crt-mode .modal-product-title {
+    color: #d99b26 !important;
+    border-bottom-color: #d99b26 !important;
 }
 
-.color-pill.putih {
-    background-color: #f3f4f6; /* Putih */
-    color: #333; /* Teks gelap untuk tombol putih */
-    border-color: #d1d5db;
+body.crt-mode .close-btn { color: #ff4d4d !important; }
+
+body.crt-mode .retro-select {
+    background: #000 !important;
+    color: #d99b26 !important;
+    border-color: #d99b26 !important;
 }
 
-.color-pill:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
-}
-
-/* Toast Notification Retro */
-#toast-notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #111;
-    color: #00ff66; /* Warna hijau ala terminal retro */
-    border: 1px solid #00ff66;
-    padding: 12px 20px;
-    font-family: monospace;
-    font-size: 14px;
+body.crt-mode .modal-content button:not(.btn-brick-bg):not(.btn-checkout):not(.color-pill) {
+    background-color: #000 !important;
+    color: #d99b26 !important;
+    border: 1px solid #d99b26 !important;
+    font-weight: bold;
+    padding: 6px 12px;
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    z-index: 9999;
+    cursor: pointer;
 }
 
-#toast-notification.show {
-    transform: translateY(0);
-    opacity: 1;
+body.crt-mode .modal-content button:not(.btn-brick-bg):not(.btn-checkout):not(.color-pill):hover {
+    background-color: #d99b26 !important;
+    color: #0e1721 !important;
+}
+
+body.crt-mode .btn-brick-bg,
+body.crt-mode .btn-add-cart-modal {
+    background-color: #b03a2e !important;
+    color: #ffffff !important;
+    border: 1px solid #000 !important;
+}
+
+body.crt-mode .btn-wishlist-card {
+    background: #0E1721 !important;
+    border: 2px solid #D99B26 !important;
+    color: #ff4d4d !important;
+    box-shadow: 2px 2px 0px #000 !important;
+}
+
+body.crt-mode .btn-wishlist-card.active {
+    background: #ff4d4d !important;
+    color: #fff !important;
+}
+
+body.crt-mode .retro-size-calc-modal {
+    background-color: #0e1721 !important;
+    border: 2px solid #d99b26 !important;
+    box-shadow: 6px 6px 0px #000000 !important;
+}
+
+body.crt-mode .retro-size-calc-modal .recommender-header,
+body.crt-mode .retro-size-calc-modal .input-field-group label { color: #d99b26 !important; }
+
+body.crt-mode .retro-size-calc-modal .input-field-group input {
+    background: #000000 !important;
+    border: 1.5px solid #d99b26 !important;
+    color: #d99b26 !important;
+}
+
+body.crt-mode .retro-size-calc-modal .recommend-badge.default {
+    background: #000000 !important;
+    color: #d99b26 !important;
+    border: 1px dashed #d99b26 !important;
+}
+
+body.crt-mode .retro-size-calc-modal .recommend-badge.active {
+    background: #b03a2e !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+}
+
+body.crt-mode .cart-modal-title { color: #D99B26 !important; }
+body.crt-mode .checkout-title { color: #E2E8F0 !important; }
+
+/* --- FIX ICON FONT AWESOME OVERRIDE --- */
+i[class*="fa-"], 
+.fas, 
+.far, 
+.fab, 
+.fa {
+    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+    font-weight: 900;
+}
+
+/* --- MEDIA QUERY RESPONSIVE HP --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-overlay h2 {
+        font-size: 28px;
+    }
 }
