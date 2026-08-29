@@ -99,7 +99,7 @@ header {
 /* --- HERO SECTION DEFAULT --- */
 .hero-overlay {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('Styling/denim.jfif') center/cover no-repeat !important;
+                url('Styling/Denim.jfif') center/cover no-repeat !important;
     color: white;
     border: 3px solid #b03a2e !important;
     border-radius: 8px;
@@ -603,7 +603,7 @@ body.crt-mode .cart-badge {
 
 body.crt-mode .hero-overlay {
     background: linear-gradient(rgba(14, 23, 33, 0.75), rgba(14, 23, 33, 0.75)), 
-                url('Styling/denimnight.jfif') center/cover no-repeat !important;
+                url('Styling/Denimnight.jfif') center/cover no-repeat !important;
     border: 3px solid #D99B26 !important;
     box-shadow: 6px 6px 0px #000 !important;
     color: #D99B26 !important;
