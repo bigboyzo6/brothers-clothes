@@ -1,12 +1,247 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <script>
-    window.location.replace("./FRONTEND/index.html");
-  </script>
-  <title>BrothersClothes</title>
-</head>
-<body>
-</body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brothers Clothes Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body> 
+
+    <!-- Header / Navbar --> 
+    <header id="main-header"> 
+        <div class="navbar"> 
+            <h1 class="logo" onclick="showHeroView()">BROTHERS CLOTHES</h1> 
+            <div class="header-icons">
+                <div class="wishlist-icon-wrapper" onclick="toggleWishlistModal()" title="Lihat Wishlist">
+                    <i class="fa-solid fa-heart"></i> 
+                </div> 
+                <div class="cart-icon-wrapper" onclick="toggleCartModal()" title="Lihat Keranjang"> 
+                    <i class="fa-solid fa-cart-shopping cart-icon"></i> 
+                    <span id="cart-count" class="cart-badge">0</span> 
+                </div> 
+            </div>
+        </div> 
+    </header> 
+
+    <main class="container"> 
+        <!-- HALAMAN 1: HERO SECTION --> 
+        <section id="hero-view" class="view-section active-view"> 
+            <div class="hero-overlay"> 
+                <span class="hero-tag">EST. 1982 • ACID WASH & RAW DENIM</span> 
+                <h2>THE ULTIMATE DENIM EXPERIENCE</h2> 
+                <p>Koleksi pakaian denim & streetwear bergaya vintage klasik 80-an dengan kualitas premium.</p> 
+                 
+                <div class="hero-buttons"> 
+                    <button onclick="showCatalogView()" class="btn-hero btn-brick">
+                        <i class="fa-solid fa-store"></i> Lihat Katalog Produk
+                    </button> 
+                    <button onclick="openSizeOnlyModal()" class="btn-hero btn-outline">
+                        <i class="fa-solid fa-ruler-combined"></i> Cek Rekomendasi Ukuran
+                    </button> 
+                    <button onclick="showCatalogView(); scrollToInfo();" class="btn-hero btn-outline">
+                        <i class="fa-solid fa-location-dot"></i> Lokasi Toko
+                    </button> 
+                </div> 
+            </div> 
+        </section> 
+
+        <!-- HALAMAN 2: KATALOG PRODUK --> 
+        <section id="catalog-view" class="view-section"> 
+            <div class="catalog-header"> 
+                <button onclick="showHeroView()" class="btn-back">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+                </button> 
+                <h2 class="section-title">KATALOG PRODUK</h2> 
+            </div> 
+
+            <!-- SEARCH & QUICK FILTER SECTION --> 
+            <div class="search-filter-box"> 
+                <div class="retro-search-container"> 
+                    <i class="fa-solid fa-magnifying-glass search-label"></i> 
+                    <input type="text" id="search-input" placeholder="Cari denim, jaket, hoodie..."> 
+                    <button id="btn-clear-search" class="btn-clear-search" onclick="clearSearch()">&times;</button> 
+                </div> 
+
+                <div class="quick-filter-buttons"> 
+                    <button class="filter-btn active" data-category="ALL">[ ALL ]</button> 
+                    <button class="filter-btn" data-category="DENIM">[ RAW DENIM ]</button> 
+                    <button class="filter-btn" data-category="JACKET">[ JACKETS ]</button> 
+                    <button class="filter-btn" data-category="TEES">[ TEES ]</button> 
+                </div> 
+            </div>
+
+            <!-- Wadah Tempat Produk Muncul dari JS --> 
+            <div id="product-list" class="product-grid"></div> 
+
+            <section id="info-section" class="store-info"> 
+                <h3>Informasi & Alamat Toko</h3> 
+                <p><strong>Nama Toko:</strong> Brothers Clothes Store</p> 
+                <p><strong>Alamat Lengkap:</strong> Jl. Pemuda No. 45, Jakarta Timur</p> 
+                <p><strong>Jam Operasional:</strong> 10.00 - 22.00 WIB</p> 
+                <p><strong>Opsi Pengiriman:</strong> JNE, J&T, GoSend, GrabExpress</p> 
+            </section> 
+        </section> 
+
+    </main> 
+
+    <!-- MODAL QUICK VIEW PRODUK -->
+    <div id="quick-view-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeQuickViewModal()">&times;</span>
+            <div class="qv-flex-container">
+                <div class="qv-img-wrapper">
+                    <img id="qv-main-img" src="" alt="Product Image">
+                </div>
+                <div class="qv-details">
+                    <label class="color-select-label">Pilih Warna:</label>
+                    <div id="qv-color-options" class="qv-color-group"></div>
+                    <h3 id="qv-title"></h3>
+                    <p id="qv-price" class="price-tag"></p>
+                    <p id="qv-stock"></p>
+                    <p id="qv-desc"></p>
+                    <button id="qv-btn-add" class="btn-primary btn-brick-bg">Pilih Ukuran & Masukkan ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Varian & Rekomendasi Ukuran --> 
+    <div id="variant-modal" class="modal" style="display: none;"> 
+        <div class="modal-content retro-variant-modal"> 
+            <span class="close-btn" onclick="closeVariantModal()">&times;</span> 
+            <h3 id="modal-product-name" class="modal-product-title">Pilih Ukuran & Warna</h3> 
+             
+            <div class="size-recommender-box"> 
+                <div class="recommender-header">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>KALKULATOR UKURAN VINTAGE</span>
+                </div>
+                 
+                <div class="input-grid"> 
+                    <div class="input-field-group"> 
+                        <label for="input-tb">Tinggi Badan (cm)</label> 
+                        <input type="number" id="input-tb" placeholder="170" oninput="hitungRekomendasiUkuran()"> 
+                    </div> 
+                    <div class="input-field-group"> 
+                        <label for="input-bb">Berat Badan (kg)</label> 
+                        <input type="number" id="input-bb" placeholder="65" oninput="hitungRekomendasiUkuran()"> 
+                    </div> 
+                </div> 
+
+                <div id="recommendation-badge" class="recommend-badge default">
+                    <span id="recommendation-result">Masukkan TB & BB untuk kalkulasi otomatis</span>
+                </div>
+            </div> 
+
+            <div class="selection-group">
+                <div class="form-group"> 
+                    <label for="select-size"><i class="fa-solid fa-shirt"></i> Ukuran Terpilih:</label> 
+                    <select id="select-size" class="retro-select"> 
+                        <option value="S">S (Small)</option> 
+                        <option value="M" selected>M (Medium)</option> 
+                        <option value="L">L (Large)</option> 
+                        <option value="XL">XL (Extra Large)</option> 
+                        <option value="XXL">XXL (Double XL)</option> 
+                    </select> 
+                </div> 
+
+                <div class="form-group"> 
+                    <label for="select-color"><i class="fa-solid fa-palette"></i> Warna Terpilih:</label> 
+                    <select id="select-color" class="retro-select"> 
+                        <option value="Hitam">Hitam</option> 
+                        <option value="Putih">Putih</option> 
+                        <option value="Navy">Navy</option> 
+                        <option value="Denim">Denim</option> 
+                        <option value="Abu-Abu">Abu-Abu</option> 
+                    </select> 
+                </div> 
+            </div>
+
+            <button id="btn-confirm-add" class="btn-primary btn-brick-bg btn-add-cart-modal" onclick="addToCartConfirmed()">
+                <i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang
+            </button> 
+        </div> 
+    </div>
+
+    <!-- Modal Detail Keranjang --> 
+    <div id="cart-modal" class="modal" style="display: none;"> 
+        <div class="modal-content retro-cart-modal"> 
+            <span class="close-btn" onclick="toggleCartModal()">&times;</span> 
+            <h3 class="cart-modal-title">Keranjang Belanja Kamu</h3> 
+             
+            <div id="cart-items-container" class="cart-items-list"></div> 
+             
+            <div class="cart-summary"> 
+                <div class="total-row">
+                    <span>Total:</span>
+                    <span id="cart-total-price" class="cart-total-amount">Rp 0</span>
+                </div>
+                 
+                <p class="checkout-title">Pilih Metode Checkout:</p> 
+                <div class="checkout-buttons"> 
+                    <button onclick="checkoutWhatsApp()" class="btn-checkout btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Checkout via WhatsApp
+                    </button> 
+                    <button onclick="checkoutShopee()" class="btn-checkout btn-shopee">
+                        <i class="fa-solid fa-bag-shopping"></i> Checkout via Shopee
+                    </button> 
+                    <button onclick="checkoutTokopedia()" class="btn-checkout btn-tokopedia">
+                        <i class="fa-solid fa-store"></i> Checkout via Tokopedia
+                    </button> 
+                    <button onclick="checkoutTikTok()" class="btn-checkout btn-tiktok">
+                        <i class="fa-brands fa-tiktok"></i> Checkout via TikTok Shop
+                    </button> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+
+    <!-- Modal Wishlist -->
+    <div id="wishlist-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleWishlistModal()">&times;</span>
+            <h2><i class="fa-solid fa-heart" style="color: #ff4d4d;"></i> Wishlist Kamu</h2>
+            <div id="wishlist-items-container"></div>
+        </div>
+    </div>
+
+    <!-- Tombol Switch Mode & Toast -->
+    <button class="theme-switch-btn" onclick="toggleTheme()" id="theme-btn">
+        <i class="fa-solid fa-moon" style="color: #ffcc00; margin-right: 5px;"></i> Mode Gelap
+    </button>
+    <div id="toast-notification">Berhasil ditambahkan ke keranjang!</div>
+
+    <!-- MODAL KALKULATOR UKURAN STANDALONE -->
+    <div id="size-calculator-modal" class="modal" style="display: none;">
+        <div class="modal-content retro-size-calc-modal">
+            <span class="close-btn" id="close-size-calc-modal">&times;</span>
+             
+            <div class="size-recommender-box">
+                <div class="recommender-header">
+                    <i class="fas fa-calculator"></i> KALKULATOR UKURAN VINTAGE
+                </div>
+                 
+                <div class="input-grid">
+                    <div class="input-field-group">
+                        <label for="calc-height">Tinggi Badan (cm)</label>
+                        <input type="number" id="calc-height" placeholder="170" value="170">
+                    </div>
+                    <div class="calc-weight-group">
+                        <label for="calc-weight">Berat Badan (kg)</label>
+                        <input type="number" id="calc-weight" placeholder="65" value="65">
+                    </div>
+                </div>
+                 
+                <div id="calc-recommendation-badge" class="recommend-badge default">
+                    Masukkan TB & BB untuk kalkulasi otomatis
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script> 
+    <div id="toast-notification">Berhasil ditambahkan ke keranjang!</div>
+</body> 
 </html>
